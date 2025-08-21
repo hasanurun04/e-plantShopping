@@ -38,7 +38,7 @@
 
 .landing_content {
  margin-top: 430px;
-  margin-left: 100px;
+  margin-left: 250px;
   transform: translate(-50%, -50%);
   z-index: 1;
   text-align: center;
@@ -125,12 +125,13 @@
   .landing_content {
     margin-top: 100px; /* Adjust as needed */
     margin-left: 0;
-    width: 80%; /* Adjust as needed */
+    width: 60%; /* Adjust as needed */
     text-align: center;
   }
 
   .aboutus_container {
-    margin-top: 20px; /* Adjust as needed */
+    margin-top: 20px;
+    margin-left: 100px;/* Adjust as needed */
     width: 80%; /* Adjust as needed */
   }
 }
