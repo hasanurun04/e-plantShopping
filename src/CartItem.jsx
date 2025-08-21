@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeItem, updateQuantity } from './CartSlice';
+import { removeItem, updateQuantity } from './CartSlice'; // hint: removeItem(item.name)
 import './CartItem.css';
 
 const CartItem = ({ onContinueShopping }) => {
@@ -23,33 +23,23 @@ const CartItem = ({ onContinueShopping }) => {
     return (price * item.quantity).toFixed(2);
   };
 
-  // Sepete devam et
-  const handleContinueShopping = (e) => {
-    onContinueShopping(e);
-  };
-
-  // Checkout (şimdilik alert)
-  const handleCheckoutShopping = () => {
-    alert('Functionality to be added for future reference');
-  };
-
   // Quantity artır
   const handleIncrement = (item) => {
     dispatch(updateQuantity({ name: item.name, quantity: item.quantity + 1 }));
   };
 
-  // Quantity azalt
+  // Quantity azalt (0 olursa tamamen sil)
   const handleDecrement = (item) => {
     if (item.quantity > 1) {
       dispatch(updateQuantity({ name: item.name, quantity: item.quantity - 1 }));
     } else {
-      dispatch(removeItem(item.name));
+      dispatch(removeItem(item.name)); // 🔑 hint
     }
   };
 
   // Ürün sil
   const handleRemove = (item) => {
-    dispatch(removeItem(item.name));
+    dispatch(removeItem(item.name)); // 🔑 hint
   };
 
   return (
@@ -98,13 +88,13 @@ const CartItem = ({ onContinueShopping }) => {
           </div>
           <button
             className="continue_shopping_btn get-started-button1"
-            onClick={handleContinueShopping}
+            onClick={onContinueShopping}
           >
             Continue Shopping
           </button>
           <button
             className="get-started-button1"
-            onClick={handleCheckoutShopping}
+            onClick={() => alert('Functionality to be added for future reference')}
           >
             Checkout
           </button>
